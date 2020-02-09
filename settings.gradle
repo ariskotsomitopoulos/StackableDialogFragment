@@ -1,0 +1,2 @@
+include ':app', ':stackable-dialog-fragment'
+rootProject.name='StackableDialogExample'

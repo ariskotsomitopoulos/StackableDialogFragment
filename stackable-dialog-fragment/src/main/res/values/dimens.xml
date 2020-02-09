@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Dialog Fragment Insets -->
+    <dimen name="dialog_stack_width_inset">5dp</dimen>
+    <dimen name="dialog_stack_height_inset">8dp</dimen>
+    <dimen name="dialog_top_inset">36dp</dimen>
+    <dimen name="dialog_end_inset">8dp</dimen>
+    <dimen name="dialog_start_inset">8dp</dimen>
+    <dimen name="dialog_bottom_inset">0dp</dimen>
+</resources>
