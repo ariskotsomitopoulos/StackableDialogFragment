@@ -1,8 +1,8 @@
 <resources>
 
     <style name="ThemeStackableDialog" parent="Theme.AppCompat.Dialog">
-        <item name="android:windowEnterAnimation">@anim/slide_up_dialog</item>
-        <item name="android:windowExitAnimation">@anim/slide_down_dialog</item>
+        <item name="android:windowEnterAnimation">@anim/slide_up_stackable_dialog_fragment</item>
+        <item name="android:windowExitAnimation">@anim/slide_down_stackable_dialog_fragment</item>
         <item name="android:windowNoTitle">true</item>
         <item name="android:windowBackground">@android:color/transparent</item>
         <item name="android:windowCloseOnTouchOutside">false</item>
@@ -11,12 +11,12 @@
     </style>
 
     <style name="ShortAnimThemeStackableDialog" parent="@style/ThemeStackableDialog">
-        <item name="android:windowEnterAnimation">@anim/slide_up_dialog</item>
+        <item name="android:windowEnterAnimation">@anim/slide_up_stackable_dialog_fragment</item>
         <item name="android:windowExitAnimation">@anim/slide_down_dialog_short_anim</item>
     </style>
 
     <style name="LongAnimThemeStackableDialog" parent="@style/ThemeStackableDialog">
-        <item name="android:windowEnterAnimation">@anim/slide_up_dialog</item>
+        <item name="android:windowEnterAnimation">@anim/slide_up_stackable_dialog_fragment</item>
         <item name="android:windowExitAnimation">@anim/slide_down_dialog_long_anim</item>
     </style>
 
