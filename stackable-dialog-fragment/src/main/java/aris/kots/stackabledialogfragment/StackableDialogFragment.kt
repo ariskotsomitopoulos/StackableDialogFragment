@@ -28,13 +28,12 @@ abstract class StackableDialogFragment : DialogFragment() {
         private const val MAX_DIALOGS_VISIBLE = 4
         private var uniqueIndex = AtomicInteger(0)
         private val fragmentTagStack = Stack<String>()
-//        fun newInstance() = StackableDialogFragment()
     }
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setStyle(STYLE_NORMAL, R.style.ThemeStackableDialog)
+        setStyle(STYLE_NORMAL, if(isFastAnimation()) R.style.ShortAnimThemeStackableDialog else R.style.ThemeStackableDialog)
     }
 
     override fun onCreateView(
@@ -53,7 +52,7 @@ abstract class StackableDialogFragment : DialogFragment() {
 
     override fun onStart() {
         super.onStart()
-        dialog?.window?.attributes?.windowAnimations = R.style.ThemeStackableDialog
+        dialog?.window?.attributes?.windowAnimations = if(isFastAnimation()) R.style.ShortAnimThemeStackableDialog else R.style.ThemeStackableDialog
         dialog?.window?.setLayout(
             ViewGroup.LayoutParams.MATCH_PARENT,
             ViewGroup.LayoutParams.MATCH_PARENT)
@@ -70,8 +69,17 @@ abstract class StackableDialogFragment : DialogFragment() {
 
     @DrawableRes
     private fun getDialogBackground(): Int = R.drawable.bg_transparent
+
+    /**
+     * Determines whether or not the dialog is pinned on the bottom.
+     * If is False then the dialog bottom inset is the same with the top inset.
+     */
     open fun isPinnedToBottom(): Boolean = true
 
+    /**
+     * Modifies the animation speed
+     */
+    open fun isFastAnimation(): Boolean = true
 
     /**
      * Dismiss the current Fragment and invalidate the UI on the other fragments
@@ -124,13 +132,12 @@ abstract class StackableDialogFragment : DialogFragment() {
     /**
      * Returns the current position of the fragment
      */
-
     protected fun getPosition() = currentPosition
+
     /**
      * Redraw the position of every fragment in the stack depending on its position
      */
     private fun invalidateUI() {
-
         activity?.let {
             val insetDrawable = InsetDrawable(
                 ContextCompat.getDrawable(it, getDialogBackground()),
@@ -147,6 +154,9 @@ abstract class StackableDialogFragment : DialogFragment() {
         }
     }
 
+    /**
+     * Calculate the inset for each dialog depending on their presentation order
+     */
     private fun calculateInset(@DimenRes dimenRes: Int): Int {
         return when {
             fragmentTagStack.size - currentPosition <= 0 -> 0

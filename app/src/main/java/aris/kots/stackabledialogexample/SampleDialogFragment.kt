@@ -11,10 +11,8 @@ import kotlinx.android.synthetic.main.sample_dialog_fragment.*
 class SampleDialogFragment : StackableDialogFragment(){
 
     companion object {
-        fun newInstance() = SampleDialogFragment()
 
         private const val ARG_SAMPLE= "arg_sample"
-
         fun newInstance(displayText: String) = SampleDialogFragment().withArgs {
             putString(ARG_SAMPLE, displayText)
         }
@@ -35,7 +33,6 @@ class SampleDialogFragment : StackableDialogFragment(){
     /**
      * Color the even dialogs for fun
      */
-
     private fun colorBackground() {
         backgroundConstraintLayout.backgroundTintList =
 
