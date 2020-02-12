@@ -12,7 +12,7 @@
 * The UI let the user see that there are multiple dialogs opened in the background
 * You can pass your own fragment bundles arguments without any problem
 
-<img src="https://github.com/ariskotsomitopoulos/StackableDialogFragment/blob/master/demo/stackable_dialog_fragment_record_01.gif" width="380">
+<img src="https://github.com/ariskotsomitopoulos/StackableDialogFragment/blob/master/demo/stackable_dialog_fragment_record_01.gif" width="330">
 
 
 How to use it
