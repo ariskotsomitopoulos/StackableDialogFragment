@@ -64,23 +64,6 @@ abstract class StackableDialogFragment : DialogFragment() {
         }
     }
 
-    @LayoutRes
-    protected abstract fun getLayoutId(): Int
-
-    @DrawableRes
-    private fun getDialogBackground(): Int = R.drawable.bg_transparent
-
-    /**
-     * Determines whether or not the dialog is pinned on the bottom.
-     * If is False then the dialog bottom inset is the same with the top inset.
-     */
-    open fun isPinnedToBottom(): Boolean = true
-
-    /**
-     * Modifies the animation speed
-     */
-    open fun isFastAnimation(): Boolean = true
-
     /**
      * Dismiss the current Fragment and invalidate the UI on the other fragments
      * in the stack
@@ -114,6 +97,42 @@ abstract class StackableDialogFragment : DialogFragment() {
         super.show(manager, arguments?.getString(ARG_TAG_NAME))
     }
 
+    /*
+        Exposed Methods
+     */
+
+    @LayoutRes
+    protected abstract fun getLayoutId(): Int
+
+    /**
+     * Set the dialog window background
+     */
+    @DrawableRes
+    open fun getDialogBackground(): Int = R.drawable.bg_transparent
+
+    /**
+     * Determines whether or not the dialog is pinned on the bottom.
+     * If is False then the dialog bottom inset is the same with the top inset.
+     */
+    open fun isPinnedToBottom(): Boolean = true
+
+    /**
+     * Modifies the animation speed
+     */
+    open fun isFastAnimation(): Boolean = true
+
+    /**
+     * Set the top/bottom dialog inset from a dimens value
+     */
+    @DimenRes
+    open fun getVerticalMargin(): Int = R.dimen.dialog_top_inset
+
+    /**
+     * Set the top/bottom dialog inset from a dimens value
+     */
+    @DimenRes
+    open fun getHorizontalMargin(): Int = R.dimen.dialog_start_inset
+
     /**
      * Dismiss all fragments in the stack
      */
@@ -141,13 +160,13 @@ abstract class StackableDialogFragment : DialogFragment() {
         activity?.let {
             val insetDrawable = InsetDrawable(
                 ContextCompat.getDrawable(it, getDialogBackground()),
-                resources.getDimension(R.dimen.dialog_start_inset).toInt() + calculateInset(R.dimen.dialog_stack_width_inset),
-                resources.getDimension(R.dimen.dialog_top_inset).toInt() - calculateInset(R.dimen.dialog_stack_height_inset),
-                resources.getDimension(R.dimen.dialog_end_inset).toInt() + calculateInset(R.dimen.dialog_stack_width_inset),
+                resources.getDimension(getHorizontalMargin()).toInt() + calculateInset(R.dimen.dialog_stack_width_inset),
+                resources.getDimension(getVerticalMargin()).toInt() - calculateInset(R.dimen.dialog_stack_height_inset),
+                resources.getDimension(getHorizontalMargin()).toInt() + calculateInset(R.dimen.dialog_stack_width_inset),
                 if(isPinnedToBottom()){
                     resources.getDimension(R.dimen.dialog_bottom_inset).toInt()
                 }else{
-                    resources.getDimension(R.dimen.dialog_top_inset).toInt() + calculateInset(R.dimen.dialog_stack_height_inset)
+                    resources.getDimension(getVerticalMargin()).toInt() + calculateInset(R.dimen.dialog_stack_height_inset)
                 }
             )
             dialog?.window?.setBackgroundDrawable(insetDrawable)

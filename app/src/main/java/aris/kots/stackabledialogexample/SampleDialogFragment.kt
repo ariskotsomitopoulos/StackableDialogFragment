@@ -19,12 +19,13 @@ class SampleDialogFragment : StackableDialogFragment(){
     }
 
     override fun getLayoutId(): Int = R.layout.sample_dialog_fragment
-
 //    override fun isPinnedToBottom(): Boolean = false
+//    override fun getVerticalMargin(): Int = R.dimen.dialog_vertical_margin
+//    override fun getHorizontalMargin(): Int = R.dimen.dialog_horizontal_margin
+    // override fun getDialogBackground(): Int = R.drawable.bg_rounded_white_10
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
         clickListeners()
         colorBackground()
         titleTextView.text = arguments?.getString(ARG_SAMPLE)
