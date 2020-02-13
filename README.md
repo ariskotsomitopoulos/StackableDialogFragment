@@ -77,3 +77,7 @@ override fun getHorizontalMargin(): Int = R.dimen.your_custom_horizontal_margin
 ```
 override fun getDialogBackground(): Int = R.drawable.your_custom_drawable
 ```
+*Modifies the animation speed*
+```
+override fun isFastAnimation(): Boolean = true
+```
