@@ -73,7 +73,7 @@ override fun getVerticalMargin(): Int = R.dimen.your_custom_vertical_margin
 ```
 override fun getHorizontalMargin(): Int = R.dimen.your_custom_horizontal_margin
 ```
-*Set the window dialog background
+*Set the window dialog background*
 ```
 override fun getDialogBackground(): Int = R.drawable.your_custom_drawable
 ```
