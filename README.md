@@ -9,6 +9,7 @@
 #### Features
 * Smooth enter/exit animations
 * Bottom pinned functionality like a modal
+* Resizable dialog, you can edit vertical and horizontal margin
 * The UI let the user see that there are multiple dialogs opened in the background
 * You can pass your own fragment bundles arguments without any problem
 
@@ -29,7 +30,7 @@ How to use it
 **Step 2** Add the dependency
 ```
   dependencies {
-	    implementation 'com.github.ariskotsomitopoulos:stackabledialogfragment:v1.0.2'
+	    implementation 'com.github.ariskotsomitopoulos:stackabledialogfragment:v1.0.3'
 	}
 ```
 
@@ -56,4 +57,23 @@ class SampleDialogFragment : StackableDialogFragment(){
 SampleDialogFragment.newInstance().show(supportFragmentManager,null)
 ```
 
+Usefull Methods
+------
+You can override the following methods in order to define your own custom resources
 
+*Set the dialog pinned to the bottom*
+```
+override fun isPinnedToBottom(): Boolean = false
+```
+*Set the vertical margins of the dialog*
+```
+override fun getVerticalMargin(): Int = R.dimen.your_custom_vertical_margin
+```
+*Set the horizontal margins of the dialog*
+```
+override fun getHorizontalMargin(): Int = R.dimen.your_custom_horizontal_margin
+```
+*Set the window dialog background
+```
+override fun getDialogBackground(): Int = R.drawable.your_custom_drawable
+```
