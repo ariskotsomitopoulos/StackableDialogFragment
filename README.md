@@ -4,7 +4,7 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://github.com/ariskotsomitopoulos/StackableDialogFragment/blob/master/LICENSE)
 
 
-**StackableDialogFragment** is a simple lightweight kotlin library that let you stack multiple large *DialogFragments* together. It respects the creation order and represents the fragments/dialogs with a nice user friendly way.
+**StackableDialogFragment** is a simple lightweight kotlin library that let you stack multiple *DialogFragments* together. It respects the creation order and represents the fragments/dialogs with a nice user friendly way.
 
 #### Features
 * Smooth enter/exit animations
