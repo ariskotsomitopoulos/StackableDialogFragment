@@ -13,9 +13,10 @@
 * The UI let the user see that there are multiple dialogs opened in the background
 * You can pass your own fragment bundles arguments without any problem
 
-<img src="https://github.com/ariskotsomitopoulos/StackableDialogFragment/blob/master/demo/stackable_dialog_fragment_record_01.gif" width="330">
-
-
+<p float="left">
+<img src="https://github.com/ariskotsomitopoulos/StackableDialogFragment/blob/master/demo/stackable_dialog_fragment_pinned_bottom.gif" width="300">
+<img src="https://github.com/ariskotsomitopoulos/StackableDialogFragment/blob/master/demo/stackable_dialog_fragment.gif" width="300">
+</p>
 How to use it
 ------
 **Step 1** Add jitpack.io in your root build.gradle at the end of repositories:
