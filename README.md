@@ -59,7 +59,7 @@ class SampleDialogFragment : StackableDialogFragment(){
 SampleDialogFragment.newInstance().show(supportFragmentManager,null)
 ```
 
-Usefull Methods
+Useful Methods
 ------
 You can override the following methods in order to define your own custom resources
 
